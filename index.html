@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jonas Zimmermann · Gestalt-Coach in Leipzig und online</title>
+  <meta name="description" content="Du hast gelernt, dich anzupassen. Das hat dich geschützt. Heute funktioniert das nicht mehr und hat einen hohen Preis. Gestalt-Coaching mit Jonas Zimmermann, Leipzig und online.">
+  <meta name="theme-color" content="#092B4E">
+  <link rel="preload" href="assets/fonts/HankenGrotesk-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/OpenSans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <style>
+    :root{
+      --ink:#092B4E; --rose:#E4B7C6; --petrol:#11676A; --petrol-high:#3A8E91; --petrol-deep:#073336;
+      --font-display:"Hanken Grotesk","Helvetica Neue",system-ui,sans-serif;
+      --font-body:"Open Sans",system-ui,sans-serif;
+      --gutter:clamp(20px,4vw,56px);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;background:var(--ink)}
+    body{margin:0;background:var(--ink);color:var(--rose);font-family:var(--font-body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    a{color:inherit;transition:color 120ms ease}
+    a:hover{color:var(--petrol-high)}
+    ::selection{background:var(--rose);color:var(--ink)}
+    img{display:block;max-width:100%}
+    h1,h2,h3,p,figure{margin:0}
+    .d{font-family:var(--font-display);letter-spacing:-0.02em}
+    .l{font-weight:300}
+    .wrap{max-width:1200px;margin:0 auto}
+    .kicker{font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase}
+    .only-m{display:none}
+
+    /* Knöpfe (wie Design-System Button) */
+    .btn{display:inline-flex;justify-content:center;align-items:center;gap:0.6em;font-family:var(--font-body);font-weight:600;text-transform:uppercase;letter-spacing:0.18em;line-height:1.2;text-decoration:none;border:1px solid var(--rose);white-space:nowrap;transition:background 120ms ease,color 120ms ease,border-color 120ms ease}
+    .btn-sm{font-size:0.72rem;padding:0.7em 1.1em}
+    .btn-lg{font-size:clamp(1rem,1.4vw,1.2rem);padding:1em 1.6em}
+    .btn-rose{background:var(--rose);color:var(--petrol-deep)}
+    .btn-rose:hover{background:transparent;color:var(--rose)}
+    .btn-ink{background:var(--ink);color:var(--rose);border-color:var(--ink);font-family:var(--font-display);font-weight:800;letter-spacing:0.04em}
+    .btn-ink:hover{background:var(--petrol-deep);border-color:var(--petrol-deep);color:var(--rose)}
+    .arrow{font-family:var(--font-body)}
+
+    /* Navigation */
+    .nav{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px var(--gutter);background:var(--ink);border-bottom:1px solid rgba(228,183,198,0.16)}
+    .brand{display:flex;flex-direction:column;gap:4px;text-decoration:none;color:var(--rose)}
+    .brand b{font-family:var(--font-display);font-size:20px;font-weight:800;letter-spacing:-0.015em;line-height:1}
+    .brand span{font-size:11px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--petrol-high)}
+    .nav-links{display:flex;align-items:center;gap:clamp(16px,3vw,40px)}
+    .nav-links a.txt{font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none}
+
+    /* Hero */
+    .hero-pad{padding:clamp(32px,5vw,72px) var(--gutter) 0}
+    .poster{position:relative;width:100%;max-width:720px;aspect-ratio:2/3;margin:0 auto;overflow:hidden;background:var(--ink)}
+    .poster img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%;filter:saturate(0.7) contrast(1.02)}
+    .poster svg{position:absolute;inset:0;width:100%;height:100%}
+    .poster-lines{position:absolute;top:17%;left:3%;right:3%;display:flex;justify-content:space-between;gap:24px;font-size:clamp(11px,1.5vw,13px);font-weight:600;letter-spacing:0.14em;text-transform:uppercase;line-height:1.5}
+    .poster-lines div{max-width:200px}
+    .poster-lines div+div{text-align:right}
+    .hero-text{padding:clamp(72px,9vw,128px) var(--gutter) clamp(80px,10vw,144px);display:flex;flex-direction:column;gap:48px}
+    .hero-text h1{font-size:clamp(36px,4.4vw,68px);line-height:1.04;font-weight:800;max-width:22ch;text-wrap:balance}
+    .hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:20px 32px}
+    .hero-cta .kicker{color:var(--petrol-high)}
+
+    /* Sell the Vacation */
+    .vac{background:var(--petrol)}
+    .vac-top{display:grid;grid-template-columns:1fr 1fr;grid-template-areas:"bio photo" "q photo";grid-template-rows:auto 1fr;background:var(--rose);color:var(--ink)}
+    .vac-photo{grid-area:photo;position:relative;min-height:clamp(520px,62vw,880px)}
+    .vac-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%}
+    .vac-bio{grid-area:bio;padding:clamp(64px,8vw,128px) clamp(20px,5vw,88px) 0}
+    .vac-bio>div{display:flex;flex-direction:column;gap:10px;padding-bottom:24px;border-bottom:1.5px solid var(--ink);max-width:480px}
+    .vac-bio .name{font-family:var(--font-display);font-size:22px;font-weight:800;letter-spacing:-0.015em;line-height:1.2}
+    .vac-bio p{font-size:16px;line-height:1.6}
+    .vac-bio .ask{font-size:22px;font-weight:700}
+    .vac-q{grid-area:q;align-self:end;padding:72px clamp(20px,5vw,88px) clamp(64px,8vw,128px)}
+    .vac-q h2{font-size:clamp(34px,3.8vw,60px);line-height:1.02;font-weight:800;max-width:18ch;text-wrap:pretty}
+    .vac-list{padding:clamp(96px,10vw,160px) var(--gutter);display:flex;flex-direction:column;gap:clamp(72px,8vw,128px)}
+    .maybe{display:flex;flex-direction:column;gap:6px}
+    .maybe .kicker{font-size:12.5px;letter-spacing:0.22em;opacity:0.85;margin-bottom:24px}
+    .maybe .big{font-family:var(--font-display);font-size:clamp(44px,6.4vw,104px);line-height:0.98;letter-spacing:-0.025em;font-weight:800}
+    .maybe .big.l{font-weight:300}
+    .find{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:32px;padding-top:clamp(40px,5vw,64px);border-top:1px solid var(--petrol-high)}
+    .find p{font-size:clamp(32px,3.6vw,56px);line-height:1.02;font-weight:800}
+
+    /* Veränderung */
+    .chg{background:var(--petrol-deep);padding:clamp(96px,10vw,160px) var(--gutter)}
+    .chg>.wrap{display:flex;flex-direction:column;gap:clamp(56px,6vw,96px)}
+    .chg-head{display:flex;flex-direction:column;gap:clamp(40px,4vw,64px)}
+    .h-xl{font-size:clamp(44px,6vw,96px);line-height:0.95;letter-spacing:-0.025em;font-weight:800}
+    .chg-head h2{max-width:14ch;text-wrap:balance}
+    .two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:32px 80px;align-items:start;padding-top:32px;border-top:1px solid var(--petrol-high)}
+    .two .lead{font-size:clamp(24px,2.2vw,32px);line-height:1.25;letter-spacing:-0.015em;font-weight:800}
+    .two .body{font-size:18px;line-height:1.6}
+    .kf-desk{display:flex;flex-direction:column;gap:16px}
+    .kf-desk img{width:100%;height:auto}
+    .kf-desk figcaption{color:var(--petrol-high)}
+    .cards{display:grid;grid-template-columns:1fr 1fr}
+    .card{display:flex;flex-direction:column;gap:24px;padding:clamp(32px,3.5vw,56px)}
+    .card h3{font-size:clamp(30px,2.8vw,44px);line-height:1;font-weight:800}
+    .card p{font-size:17px;line-height:1.6}
+    .card .lab{font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase}
+    .card-new{background:var(--rose);color:var(--ink)}
+    .card-new .lab{align-self:flex-end;color:var(--petrol-deep)}
+    .card-old{background:var(--ink);color:var(--rose)}
+    .card-old h3{font-weight:300}
+    .card-old .lab{color:var(--petrol-high)}
+    .closing{padding-top:clamp(48px,5vw,80px);border-top:1px solid var(--petrol-high)}
+    .closing p{font-size:clamp(30px,3.4vw,54px);line-height:1.08;font-weight:800;max-width:22ch;text-wrap:balance}
+
+    /* Kraftfeld Handy */
+    .kf-m{margin:0 calc(-1 * var(--gutter));flex-direction:column}
+    .kf-m .half{position:relative;isolation:isolate;overflow:hidden}
+    .kf-m .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;z-index:-1}
+    .kf-m .top{background:var(--rose);color:var(--ink)}
+    .kf-m .top .bg{opacity:0.22}
+    .kf-m .title{padding:28px 20px 20px;font-family:var(--font-display);font-size:clamp(28px,7.6vw,48px);line-height:1;letter-spacing:-0.02em;font-weight:800}
+    .kf-m .stack{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
+    .kf-m .top .stack{padding:8px 20px 56px}
+    .kf-m .force{font-family:var(--font-display);font-size:22px;font-weight:300;letter-spacing:-0.01em}
+    .kf-m .ar{font-size:20px;line-height:1}
+    .kf-m .side{font-family:var(--font-display);font-size:clamp(24px,6.4vw,36px);font-weight:800;letter-spacing:-0.015em;line-height:1.05}
+    .kf-m .tags{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;padding-top:6px}
+    .kf-m .tags span{padding:6px 12px;border:1.5px solid currentColor;font-size:12px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase}
+    .kf-m .du{position:relative;z-index:2;height:0}
+    .kf-m .du div{position:absolute;left:50%;top:-44px;width:88px;height:88px;margin-left:-44px;border-radius:50%;background:linear-gradient(135deg,var(--ink) 0 47%,var(--petrol-deep) 47% 53%,var(--rose) 53% 100%);box-shadow:0 0 0 6px var(--petrol-deep)}
+    .kf-m .bottom{background:var(--ink);color:var(--rose)}
+    .kf-m .bottom .bg{opacity:0.16}
+    .kf-m .bottom .stack{padding:60px 20px 28px}
+    .kf-m .dulab{font-size:12px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase}
+    .kf-m .list{display:flex;flex-direction:column;gap:6px;font-size:16px;line-height:1.4}
+
+    /* Ablauf */
+    .steps-sec{background:var(--rose);color:var(--ink);padding:clamp(96px,10vw,160px) var(--gutter)}
+    .steps-sec>.wrap{display:flex;flex-direction:column;gap:clamp(48px,5vw,80px)}
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0 32px;padding:0;margin:0;list-style:none}
+    .step{display:flex;flex-direction:column;gap:16px;padding:24px 16px 32px 0;border-top:1.5px solid var(--ink)}
+    .step .num{font-size:12px;font-weight:700;letter-spacing:0.2em;color:var(--petrol-deep);font-feature-settings:'tnum' 1}
+    .step>div{display:flex;flex-direction:column;gap:16px}
+    .step h3{font-size:clamp(24px,2.1vw,30px);line-height:1.1;letter-spacing:-0.015em;font-weight:800}
+    .step p{font-size:17px;line-height:1.55}
+
+    /* Lass uns reden */
+    .talk{background:var(--ink);padding:clamp(96px,10vw,160px) var(--gutter)}
+    .talk>.wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(48px,6vw,96px);align-items:center}
+    .talk h2{display:flex;flex-direction:column;font-size:clamp(72px,10vw,164px);line-height:0.88;letter-spacing:-0.03em;font-weight:800}
+    .talk h2 .l{color:var(--petrol-high)}
+    .box{display:flex;flex-direction:column;background:var(--rose);color:var(--ink)}
+    .facts{display:grid;grid-template-columns:1fr 1fr;border-bottom:1.5px solid var(--ink)}
+    .fact{display:flex;align-items:baseline;gap:12px;padding:28px clamp(24px,3vw,40px)}
+    .fact+.fact{border-left:1.5px solid var(--ink)}
+    .fact b{font-family:var(--font-display);font-size:clamp(44px,4.4vw,64px);font-weight:800;letter-spacing:-0.025em;line-height:1;font-feature-settings:'tnum' 1}
+    .fact span{font-size:12px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--petrol-deep)}
+    .box p{padding:clamp(28px,3vw,40px) clamp(28px,3vw,40px) 24px;font-family:var(--font-display);font-size:clamp(22px,1.9vw,28px);line-height:1.3;letter-spacing:-0.01em;font-weight:400;text-wrap:pretty}
+    .box p strong{font-weight:800}
+    .box .go{padding:0 clamp(28px,3vw,40px) clamp(28px,3vw,40px)}
+    .box .go .btn{display:flex;width:100%}
+
+    /* Passung */
+    .fit{background:var(--rose);color:var(--ink);padding:clamp(96px,10vw,144px) var(--gutter)}
+    .fit h3{font-size:clamp(26px,2.4vw,36px);font-weight:800;letter-spacing:-0.015em;margin-bottom:20px}
+    .fit ul{list-style:none;margin:0;padding:0}
+    .fit li{padding:18px 0;border-top:1px solid rgba(9,43,78,0.25);font-size:17px;line-height:1.55}
+    .fit li:last-child{border-bottom:1px solid rgba(9,43,78,0.25)}
+
+    /* Footer */
+    .foot{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between;padding:32px var(--gutter);background:var(--petrol-deep);color:var(--petrol-high);font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase}
+    .foot nav{display:flex;flex-wrap:wrap;gap:24px}
+    .foot a{text-decoration:none}
+    .foot a:hover{color:var(--rose)}
+
+    /* Handy (nach „Website v6 Mobile“) */
+    @media (max-width:720px){
+      :root{--gutter:20px}
+      .only-d{display:none!important}
+      .only-m{display:flex}
+      .nav{padding:14px 20px;gap:16px}
+      .brand b{font-size:18px}
+      .brand span{font-size:10px}
+      .nav .btn-sm{padding:0.95em 1.1em}
+      .hero-pad{padding:0}
+      .poster-lines{gap:16px;font-size:clamp(8px,1.9vw,13px);letter-spacing:0.12em;line-height:1.4}
+      .poster-lines div:first-child{max-width:48%}
+      .poster-lines div+div{max-width:30%}
+      .hero-text{padding:56px 20px 80px;gap:36px}
+      .hero-text h1{font-size:clamp(32px,8.6vw,68px);line-height:1.06;text-wrap:pretty}
+      .hero-cta{flex-direction:column;align-items:stretch;gap:16px}
+      .hero-cta .kicker{font-size:11px;text-align:center}
+      .vac-top{grid-template-columns:1fr;grid-template-areas:"photo" "bio" "q";grid-template-rows:auto}
+      .vac-photo{min-height:0;aspect-ratio:4/5}
+      .vac-bio{padding:48px 20px 0}
+      .vac-bio>div{gap:12px;padding-bottom:40px;max-width:none}
+      .vac-q{padding:40px 20px 72px}
+      .vac-q h2{font-size:clamp(30px,7.6vw,72px);line-height:1.06;max-width:24ch}
+      .vac-list{padding:72px 20px 80px;gap:56px}
+      .maybe{gap:4px}
+      .maybe .kicker{font-size:12px;margin-bottom:20px}
+      .maybe .big{font-size:clamp(38px,10.4vw,104px);line-height:1}
+      .maybe .big.l{margin-top:8px}
+      .find{flex-direction:column;align-items:stretch;gap:28px;padding-top:40px}
+      .find p{font-size:clamp(30px,8vw,56px);line-height:1.04}
+      .chg{padding:72px 20px 80px}
+      .chg>.wrap{gap:56px}
+      .chg-head{gap:32px}
+      .chg-head h2{font-size:clamp(38px,10vw,96px);line-height:0.98}
+      .two{gap:24px;padding-top:28px}
+      .two .lead{font-size:clamp(22px,5.6vw,32px)}
+      .two .body{font-size:17px}
+      .cards{grid-template-columns:1fr;margin:0 -20px}
+      .card{gap:20px;padding:40px 20px}
+      .card h3{font-size:clamp(28px,7.2vw,44px);line-height:1.02;min-height:2.04em}
+      .card-new{align-items:flex-end;text-align:right}
+      .card-old .lab{color:var(--rose)}
+      .closing{padding-top:40px}
+      .closing p{font-size:clamp(28px,7.4vw,54px);line-height:1.1;text-wrap:pretty}
+      .steps-sec{padding:72px 20px 80px}
+      .steps-sec>.wrap{gap:40px}
+      .steps-sec h2{font-size:clamp(40px,11vw,96px);line-height:0.98}
+      .steps{grid-template-columns:1fr}
+      .step{display:grid;grid-template-columns:40px 1fr;gap:10px 12px;padding:22px 0 26px}
+      .step:last-child{border-bottom:1.5px solid var(--ink)}
+      .step .num{padding-top:8px}
+      .step>div{gap:10px}
+      .step h3{font-size:clamp(22px,5.8vw,30px);line-height:1.12}
+      .step p{font-size:16px}
+      .talk{padding:72px 20px 80px}
+      .talk>.wrap{grid-template-columns:1fr;gap:40px}
+      .talk h2{font-size:clamp(64px,18vw,164px);line-height:0.9}
+      .fact{flex-direction:column;align-items:flex-start;gap:8px;padding:22px 20px}
+      .fact b{font-size:clamp(40px,11vw,64px)}
+      .fact span{font-size:11px}
+      .box p{padding:24px 20px 24px;font-size:clamp(20px,5.4vw,28px)}
+      .box .go{padding:0 20px 24px}
+      .fit{padding:64px 20px 72px}
+      .fit>.wrap{max-width:720px}
+      .fit h3{font-size:clamp(26px,7vw,36px)}
+      .fit li{padding:16px 0;font-size:16px}
+      .foot{flex-direction:column-reverse;gap:16px;padding:28px 20px 36px;font-size:11px}
+      .foot nav a{padding:6px 0}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <a class="brand" href="#top"><b>Jonas Zimmermann</b><span>Gestalt-Coach</span></a>
+    <nav class="nav-links" aria-label="Hauptnavigation">
+      <a class="txt only-d" href="#veraenderung">Veränderung</a>
+      <a class="txt only-d" href="#ablauf">Ablauf</a>
+      <a class="btn btn-rose btn-sm" href="#reden">Erstgespräch</a>
+    </nav>
+  </header>
+
+  <main>
+  <section id="top">
+    <div class="hero-pad">
+      <div class="poster">
+        <img src="assets/hero.jpg" srcset="assets/hero_1200.jpg 1200w, assets/hero.jpg 2000w" sizes="(max-width:720px) 100vw, 720px" alt="Wanderer mit Rucksack steht bei Sonnenuntergang auf einem Felsen über den Bergen" fetchpriority="high">
+        <svg viewBox="0 0 800 1200" preserveAspectRatio="none" role="img" aria-label="Befreie dich">
+          <defs>
+            <mask id="hero-cut" maskUnits="userSpaceOnUse" x="0" y="0" width="800" height="1200">
+              <rect x="0" y="0" width="800" height="440" fill="#fff"/>
+              <text x="24" y="440" textLength="752" lengthAdjust="spacingAndGlyphs" fill="#000" style="font-family:'Hanken Grotesk',system-ui,sans-serif;font-weight:800;font-size:236px;letter-spacing:-0.025em">Befreie</text>
+            </mask>
+          </defs>
+          <rect x="0" y="0" width="800" height="440" fill="#092B4E" mask="url(#hero-cut)"/>
+          <text x="24" y="1140" textLength="752" lengthAdjust="spacingAndGlyphs" fill="#E4B7C6" style="font-family:'Hanken Grotesk',system-ui,sans-serif;font-weight:300;font-size:330px;letter-spacing:-0.025em">dich</text>
+        </svg>
+        <div class="poster-lines">
+          <div>Wie du zu deiner Lebendigkeit zurückfindest.</div>
+          <div>Ohne endloses Gerede.</div>
+        </div>
+      </div>
+    </div>
+    <div class="wrap hero-text">
+      <h1 class="d">Du hast gelernt, dich anzupassen. Das hat dich geschützt. <span class="l">Heute funktioniert das nicht mehr und hat einen hohen Preis,</span> <span class="l" style="color:var(--petrol-high)">oder?</span></h1>
+      <div class="hero-cta">
+        <a class="btn btn-rose btn-lg" href="#reden">Erstgespräch buchen <span class="arrow" aria-hidden="true">→</span></a>
+        <span class="kicker">Gestalt-Coach · Leipzig und online</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="vac">
+    <div class="vac-top">
+      <div class="vac-photo"><img src="assets/jonas.jpg" alt="Porträt Jonas Zimmermann" loading="lazy"></div>
+      <div class="vac-bio">
+        <div>
+          <span class="name">Mein Name ist Jonas Zimmermann.</span>
+          <p>Seit 2017 Coach und Seminarleiter für Persönlichkeitsentwicklung, z.&nbsp;B. Heldenreise.<br>Seit 2019 Gestalttherapeut.<br><br>Ich arbeite mit Humor, Hartnäckigkeit und viel Liebe. Manchmal beiße ich. Ein bisschen.</p>
+          <p class="ask">Ich frage dich …</p>
+        </div>
+      </div>
+      <div class="vac-q">
+        <h2 class="d">Wie würde dein Leben aussehen, <span class="l">wenn all die Energie, die in deinen Schutz, in deine Coping-Mechanismen oder deine Muster fließt, dir heute zur Verfügung stünde?</span></h2>
+      </div>
+    </div>
+    <div class="wrap vac-list">
+      <div class="maybe">
+        <span class="kicker">Vielleicht</span>
+        <span class="big">mehr Ruhe.</span>
+        <span class="big">Und mehr Kraft.</span>
+        <span class="big">Mehr Lebendigkeit.</span>
+        <span class="big">Klarere Grenzen.</span>
+        <span class="big l">So sein dürfen, wie du bist.</span>
+      </div>
+      <div class="find">
+        <p class="d">Finden wir’s heraus.<br><span class="l">Worauf wartest du?</span></p>
+        <a class="btn btn-rose btn-lg" href="#reden">Erstgespräch buchen <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="veraenderung" class="chg">
+    <div class="wrap">
+      <div class="chg-head">
+        <h2 class="d h-xl">Wieso verändern sich die meisten Menschen nicht?</h2>
+        <div class="two">
+          <p class="d lead">Es gibt immer auch einen Teil in dir, der sich nicht verändern will, <span class="l">sonst würdest du es ja einfach machen.</span></p>
+          <p class="body">Verstehen reicht nicht. Du musst dafür sorgen, dass die Veränderung in der Tiefe verankert ist, dein Fundament stabil ist. Sonst bleibt alles beim Alten.</p>
+        </div>
+      </div>
+
+      <figure class="kf-desk only-d">
+        <img src="assets/kraftfeld.png" width="2400" height="960" loading="lazy" alt="Dein Kraftfeld: du gegen dich. Links ziehen die Sehnsucht und der Schmerz zur Veränderung zum Neuen, rechts zieht der Schutz zur Bewahrung des Alten.">
+        <figcaption class="kicker">Dein Kraftfeld: du gegen dich.</figcaption>
+      </figure>
+
+      <figure class="kf-m only-m" role="img" aria-label="Dein Kraftfeld: du gegen dich. Die Sehnsucht und der Schmerz ziehen zur Veränderung zum Neuen, der Schutz zieht zur Bewahrung des Alten.">
+        <div class="half top">
+          <img class="bg" src="assets/hoehenlinien_tinte.svg" alt="" loading="lazy">
+          <div class="title">Dein Kraftfeld: <span class="l">du gegen dich</span></div>
+          <div class="stack">
+            <span class="force">Kraft</span>
+            <span class="ar">↑</span>
+            <span class="side">Veränderung zum Neuen</span>
+            <div class="tags"><span>Sehnsucht</span><span>Schmerz</span></div>
+          </div>
+        </div>
+        <div class="du"><div></div></div>
+        <div class="half bottom">
+          <img class="bg" src="assets/hoehenlinien_rose.svg" alt="" loading="lazy">
+          <div class="stack">
+            <span class="dulab">du</span>
+            <div class="tags" style="padding-top:10px"><span>Schutz</span></div>
+            <span class="side">Bewahrung des Alten</span>
+            <div class="list"><span>Bad Habits</span><span>alte Glaubenssätze</span><span>schlechte Erfahrungen</span><span>(alte) Angst</span></div>
+            <span class="ar">↓</span>
+            <span class="force">Gegenkraft</span>
+          </div>
+        </div>
+      </figure>
+
+      <div class="cards">
+        <div class="card card-new">
+          <span class="lab">Kraft →</span>
+          <h3 class="d">Veränderung zum Neuen</h3>
+          <p>Du hast Sehnsucht nach mehr Kraft, mehr Lebendigkeit, mehr Ruhe oder was auch immer in dir. Und du spürst, dass deine alte Strategie nicht mehr funktioniert. Sie gerät an ihre Grenzen und hat heute einen hohen Preis.</p>
+        </div>
+        <div class="card card-old">
+          <span class="lab">← Gegenkraft</span>
+          <h3 class="d">Bewahrung des Alten</h3>
+          <p>Was dich zurückhält, sind alte Erfahrungen, Muster und Gewohnheiten. Der Clou: Die lassen sich leider nicht einfach abschalten. Denn darunter liegen höchstwahrscheinlich alte Ängste, schmerzhafte Erinnerungen oder unbequeme Wahrheiten.</p>
+        </div>
+      </div>
+
+      <div class="closing">
+        <p class="d">In der Kraftfeldmethode kämpfen wir nicht gegen deinen Schutz. <span class="l">Wir entlasten ihn mit Alternativen.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="ablauf" class="steps-sec">
+    <div class="wrap">
+      <h2 class="d h-xl">So gehen wir <span class="l">vor.</span></h2>
+      <ol class="steps">
+        <li class="step"><span class="num">01</span><div><h3 class="d">Spüren, wohin du willst.</h3><p>Wir geben deiner Sehnsucht ein klares Bild.</p></div></li>
+        <li class="step"><span class="num">02</span><div><h3 class="d">Deine Schutzmuster verstehen.</h3><p>Was hält dich, und wovor hat es dich bewahrt?</p></div></li>
+        <li class="step"><span class="num">03</span><div><h3 class="d">Neue Wege finden.</h3><p>Was dich bisher gehalten hat, wird zu einer Kraft, die dich trägt.</p></div></li>
+        <li class="step"><span class="num">04</span><div><h3 class="d">Im Alltag verankern.</h3><p>Üben, bis das Neue trägt. Nicht sexy, aber wirksam.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="reden" class="talk">
+    <div class="wrap">
+      <h2 class="d"><span>Lass uns</span><span class="l">reden.</span></h2>
+      <div class="box">
+        <div class="facts">
+          <div class="fact"><b>30</b><span>Minuten</span></div>
+          <div class="fact"><b>0&nbsp;€</b><span>kostenfrei</span></div>
+        </div>
+        <p>In diesem Gespräch finden wir raus, ob mein Angebot das Richtige für dich ist. <strong>Ganz offen und ohne Zwang.</strong></p>
+        <div class="go"><a class="btn btn-ink btn-lg" href="https://calendly.com/klub-der-tausend-traenen/kennenlernen" target="_blank" rel="noopener">Termin wählen <span class="arrow" aria-hidden="true">→</span></a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="passung" class="fit">
+    <div class="wrap">
+      <h3 class="d">Nicht für dich, wenn …</h3>
+      <ul>
+        <li>du eine schnelle Lösung oder eine fertige Antwort suchst,</li>
+        <li>du eine Diagnose behandelt haben willst — das hier ist keine Heilbehandlung,</li>
+        <li>du nicht bereit bist, ehrlich zu dir zu sein,</li>
+        <li>du deine Komfortzone nicht verlassen möchtest,</li>
+        <li>du nicht bereit bist, die notwendigen Veränderungen in deinem Leben umzusetzen.</li>
+      </ul>
+    </div>
+  </section>
+  </main>
+
+  <footer class="foot">
+    <span>© 2026 Jonas Zimmermann</span>
+    <nav aria-label="Rechtliches">
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="#" data-consent-open>Cookie-Einstellungen</a>
+    </nav>
+  </footer>
+
+  <script src="assets/consent.js"></script>
+</body>
+</html>
