@@ -17,6 +17,7 @@
   <meta property="og:image:alt" content="Befreie dich: Wanderer mit Rucksack steht bei Sonnenuntergang auf einem Felsen über den Bergen">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#092B4E">
+  <link rel="icon" href="assets/favicon.svg?v=3" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/HankenGrotesk-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/OpenSans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/fonts.css">
@@ -53,19 +54,21 @@
 
     /* Navigation */
     .nav{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px var(--gutter);background:var(--ink);border-bottom:1px solid rgba(228,183,198,0.16)}
-    .brand{display:flex;flex-direction:column;gap:4px;text-decoration:none;color:var(--rose)}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--rose)}
+    .brand-ring{flex:none;width:40px;height:40px;display:block}
+    .brand-word{display:flex;flex-direction:column;gap:4px}
     .brand b{font-family:var(--font-display);font-size:20px;font-weight:800;letter-spacing:-0.015em;line-height:1}
-    .brand span{font-size:11px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--petrol-high)}
+    .brand-word > span{font-size:11px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--petrol-high)}
     .nav-links{display:flex;align-items:center;gap:clamp(16px,3vw,40px)}
     .nav-links a.txt{font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none}
 
     /* Hero */
     .hero-pad{padding:clamp(32px,5vw,72px) var(--gutter) 0}
-    .poster{position:relative;width:100%;max-width:720px;aspect-ratio:2/3;margin:0 auto;overflow:hidden;background:var(--ink)}
+    .poster{position:relative;width:100%;max-width:1000px;aspect-ratio:2/3;margin:0 auto;overflow:hidden;background:var(--ink)}
     .poster img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%;filter:saturate(0.7) contrast(1.02)}
     .poster svg{position:absolute;inset:0;width:100%;height:100%}
-    .poster-lines{position:absolute;top:17%;left:3%;right:3%;display:flex;justify-content:space-between;gap:24px;font-size:clamp(11px,1.5vw,13px);font-weight:600;letter-spacing:0.14em;text-transform:uppercase;line-height:1.5}
-    .poster-lines div{max-width:200px}
+    .poster-lines{position:absolute;top:17%;left:3%;right:3%;display:flex;justify-content:space-between;gap:24px;font-size:clamp(11px,1.15vw,16px);font-weight:600;letter-spacing:0.14em;text-transform:uppercase;line-height:1.5}
+    .poster-lines div{max-width:240px}
     .poster-lines div+div{text-align:right}
     .hero-text{padding:clamp(72px,9vw,128px) var(--gutter) clamp(80px,10vw,144px);display:flex;flex-direction:column;gap:48px}
     .hero-text h1{font-size:clamp(36px,4.4vw,68px);line-height:1.04;font-weight:800;max-width:22ch;text-wrap:balance}
@@ -185,7 +188,9 @@
       .only-m{display:flex}
       .nav{padding:14px 20px;gap:16px}
       .brand b{font-size:18px}
-      .brand span{font-size:10px}
+      .brand-word > span{font-size:10px}
+      .brand{gap:10px}
+      .brand-ring{width:34px;height:34px}
       .nav .btn-sm{padding:0.95em 1.1em}
       .hero-pad{padding:0}
       .poster-lines{gap:16px;font-size:clamp(8px,1.9vw,13px);letter-spacing:0.12em;line-height:1.4}
@@ -252,7 +257,7 @@
 <body>
 
   <header class="nav">
-    <a class="brand" href="#top"><b>Jonas Zimmermann</b><span>Gestalt-Coach</span></a>
+    <a class="brand" href="#top"><svg class="brand-ring" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="38" fill="none" stroke="currentColor" stroke-width="14" stroke-dasharray="206 32.76" transform="rotate(-62 50 50)"/></svg><span class="brand-word"><b>Jonas Zimmermann</b><span>Gestalt-Coach</span></span></a>
     <nav class="nav-links" aria-label="Hauptnavigation">
       <a class="txt only-d" href="#veraenderung">Veränderung</a>
       <a class="txt only-d" href="#ablauf">Ablauf</a>
@@ -264,7 +269,7 @@
   <section id="top">
     <div class="hero-pad">
       <div class="poster">
-        <img src="assets/hero.jpg" srcset="assets/hero_1200.jpg 1200w, assets/hero.jpg 2000w" sizes="(max-width:720px) 100vw, 720px" alt="Wanderer mit Rucksack steht bei Sonnenuntergang auf einem Felsen über den Bergen" fetchpriority="high">
+        <img src="assets/hero.jpg" srcset="assets/hero_1200.jpg 1200w, assets/hero.jpg 2000w" sizes="(max-width:720px) 100vw, 1000px" alt="Wanderer mit Rucksack steht bei Sonnenuntergang auf einem Felsen über den Bergen" fetchpriority="high">
         <svg viewBox="0 0 800 1200" preserveAspectRatio="none" role="img" aria-label="Befreie dich">
           <defs>
             <mask id="hero-cut" maskUnits="userSpaceOnUse" x="0" y="0" width="800" height="1200">
