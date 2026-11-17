@@ -175,6 +175,22 @@
     .fit li{padding:18px 0;border-top:1px solid rgba(9,43,78,0.25);font-size:17px;line-height:1.55}
     .fit li:last-child{border-bottom:1px solid rgba(9,43,78,0.25)}
 
+    /* Stimmen (Testimonials) */
+    .voices{background:var(--ink);padding:clamp(64px,6vw,96px) var(--gutter) 0}
+    .voices>.wrap{display:flex;flex-direction:column;gap:28px}
+    .voices h2{font-size:clamp(26px,2.4vw,36px);line-height:1.1;letter-spacing:-0.015em;font-weight:800}
+    .voices h2 .l{color:var(--petrol-high)}
+    .voices-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;align-items:stretch}
+    .voice{display:flex;flex-direction:column;justify-content:space-between;gap:24px;border:1px solid var(--rose);padding:24px 26px}
+    .voice blockquote{margin:0;font-size:15.5px;line-height:1.6;text-wrap:pretty}
+    .voice blockquote p{margin:0}
+    .voice blockquote p+p{margin-top:0.7em}
+    .voice figcaption{display:flex;align-items:center;gap:12px;border-top:1px solid rgba(228,183,198,0.3);padding-top:16px}
+    .voice figcaption img{width:48px;height:48px;border-radius:50%;object-fit:cover}
+    .voice figcaption b{display:block;font-family:var(--font-display);font-size:16px;font-weight:800;letter-spacing:-0.01em;line-height:1.1}
+    .voice figcaption small{display:block;font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--petrol-high)}
+    .voices + .talk{padding-top:clamp(64px,6vw,96px)}
+
     /* Footer */
     .foot{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between;padding:32px var(--gutter);background:var(--petrol-deep);color:var(--petrol-high);font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase}
     .foot nav{display:flex;flex-wrap:wrap;gap:24px}
@@ -237,7 +253,13 @@
       .step>div{gap:10px}
       .step h3{font-size:clamp(22px,5.8vw,30px);line-height:1.12}
       .step p{font-size:16px}
+      .voices{padding:56px 20px 0}
+      .voices h2{font-size:26px}
+      .voices-grid{grid-template-columns:1fr;gap:12px}
+      .voice{padding:20px;gap:20px}
+      .voice blockquote{font-size:15px}
       .talk{padding:72px 20px 80px}
+      .voices + .talk{padding-top:56px}
       .talk>.wrap{grid-template-columns:1fr;gap:40px}
       .talk h2{font-size:clamp(64px,18vw,164px);line-height:0.9}
       .fact{flex-direction:column;align-items:flex-start;gap:8px;padding:22px 20px}
@@ -396,6 +418,22 @@
     </div>
   </section>
 
+  <section id="stimmen" class="voices" aria-labelledby="stimmen-h">
+    <div class="wrap">
+      <h2 class="d" id="stimmen-h">Stimmen <span class="l">aus der Begleitung.</span></h2>
+      <div class="voices-grid">
+        <figure class="voice">
+          <blockquote><p>Ich bin lange für andere über meine eigenen Grenzen gegangen. Mit Jonas habe ich mich auf den Weg gemacht, meine Grenzen nicht nur sensibler wahrzunehmen, sondern sie auch zu achten und in Kontakt zu bringen. Dadurch fühle ich mich mir selbst so viel näher und ehrlicher gegenüber.</p><p>Danke Jonas, für deine wundervoll direkte, warmherzige und humorvolle Art!</p></blockquote>
+          <figcaption><img src="assets/testimonials/lea.jpg" width="48" height="48" alt="Lea" loading="lazy"><span><b>Lea</b><small>Klientin</small></span></figcaption>
+        </figure>
+        <figure class="voice">
+          <blockquote><p>Jonas hat mich im herausforderndsten Jahr meines bisherigen Lebens sehr liebevoll, mit viel Klarheit, Augenhöhe und Professionalität begleitet. Die Langsamkeit war dabei oft unsere Meisterin, und hat mich dabei überraschend zügig durch das Nadelöhr der Heilung geführt. Ich schätze Jonas' Arbeitsweise, Methodenvielfalt, Flexibilität und absolute Zugewandtheit sehr - für mich ein Riesengeschenk! Aus tiefstem Herzen: Danke!</p></blockquote>
+          <figcaption><img src="assets/testimonials/stefan.jpg" width="48" height="48" alt="Stefan" loading="lazy"><span><b>Stefan</b><small>Klient</small></span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <section id="reden" class="talk">
     <div class="wrap">
       <h2 class="d"><span>Lass uns</span><span class="l">reden.</span></h2>
@@ -415,7 +453,7 @@
       <h3 class="d">Nicht für dich, wenn …</h3>
       <ul>
         <li>du eine schnelle Lösung oder eine fertige Antwort suchst,</li>
-        <li>du eine Diagnose behandelt haben willst — das hier ist keine Heilbehandlung,</li>
+        <li>du eine Diagnose behandelt haben willst — das hier ist keine psychotherapeutische Heilbehandlung,</li>
         <li>du nicht bereit bist, ehrlich zu dir zu sein,</li>
         <li>du deine Komfortzone nicht verlassen möchtest,</li>
         <li>du nicht bereit bist, die notwendigen Veränderungen in deinem Leben umzusetzen.</li>
